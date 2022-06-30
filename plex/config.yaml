@@ -52,6 +52,7 @@ options:
   cifsusername: "<username>"
   cifspassword: "<password>"
   cifsdomain: "<domain>"
+  targetfolder: "<foldername>"
   cifsversion: 3.0
 schema:
   log_level: list(trace|debug|info|notice|warning|error|fatal)?
@@ -62,4 +63,5 @@ schema:
   cifsusername: str
   cifspassword: str
   cifsdomain: str
+  targetfolder: str
   cifsversion: list(3.0|2.1|2.0|1.0)?
