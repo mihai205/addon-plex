@@ -51,6 +51,7 @@ options:
   networkdisks: []
   cifsusername: "<username>"
   cifspassword: "<password>"
+  cifsdomain: "<domain>"
   cifsversion: 3.0
 schema:
   log_level: list(trace|debug|info|notice|warning|error|fatal)?
@@ -60,4 +61,5 @@ schema:
     - str
   cifsusername: str
   cifspassword: str
+  cifsdomain: str
   cifsversion: list(3.0|2.1|2.0|1.0)?
