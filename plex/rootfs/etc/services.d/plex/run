@@ -19,7 +19,7 @@ if bashio::config.has_value 'networkdisks'; then
     CIFS_PASSWORD=$(bashio::config 'cifspassword')
     CIFS_DOMAIN=$(bashio::config 'cifsdomain')
     if bashio::config.has_value 'cifsversion'; then
-        CIFS_VERSION_ARG="vers=$(bashio::config 'cifsversion')"
+        CIFS_VERSION_ARG=",vers=$(bashio::config 'cifsversion')"
     fi
     bashio::log.info "Network Disks mounting.. ${MOREDISKS}" && \
     for disk in $MOREDISKS 
@@ -32,7 +32,7 @@ if bashio::config.has_value 'networkdisks'; then
         mkdir -p /$disk && \
             # mount -t cifs -o username=$CIFS_USERNAME,password=$CIFS_PASSWORD$CIFS_VERSION_ARG $disk /$disk && \
             bashio::log.info "MOUNT: mount -t cifs -o vers=${CIFS_VERSION_ARG},noserverino,username=${CIFS_USERNAME},password=${CIFS_PASSWORD},domain=${CIFS_DOMAIN} ${disk} /${TARGET_FOLDER} && \ "
-            mount -t cifs -o $CIFS_VERSION_ARG,noserverino,username=$CIFS_USERNAME,password=$CIFS_PASSWORD,domain=$CIFS_DOMAIN $disk /$TARGET_FOLDER && \
+            mount -t cifs -o noserverino,username=$CIFS_USERNAME,password=$CIFS_PASSWORD,domain=$CIFS_DOMAIN$CIFS_VERSION_ARG $disk /$TARGET_FOLDER && \
             bashio::log.info "Success!"   
     done || \
     bashio::log.warning "Unable to mount external drives probably due to an incorrect login/password!"
