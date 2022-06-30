@@ -3,9 +3,8 @@ name: Plex Media Server
 version: dev
 slug: plex
 description: Recorded media, live TV, online news, and podcasts ready to stream.
-url: https://github.com/lbouriez/addon-plex
+url: https://github.com/mihai205/addon-plex
 webui: http://[HOST]:[PORT:32400]/web
-image: ghcr.io/lbouriez/addon-plex/{arch}
 startup: services
 arch:
   - aarch64
