@@ -7,7 +7,7 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # Setup base system
 ARG BUILD_ARCH=amd64
-ARG RELEASE=1.32.0.6918-6f393eda1
+ARG RELEASE=1.32.8.7639-fb6452ebf
 RUN \
     apt-get update \
     \
